@@ -7,6 +7,7 @@ import java.util.Random;
 import Jama.Matrix;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 public class Shamir
 {
@@ -102,7 +103,7 @@ public class Shamir
             try {
                 
                 String data="";
-                br = new BufferedReader(new FileReader("d:/inputSmc.txt"));// give the values in this file
+                br = new BufferedReader(new FileReader("/inputSmc.txt"));// give the values in this file
                 String line = "";
                 while((line=br.readLine())!=null)
                 {
@@ -111,10 +112,20 @@ public class Shamir
                 br.close();
                 String []allData = data.split(";");
                 
-                
+                if(allData.length!=2)
+                {
+                    System.out.println(" Please specify proper input in file");
+                    System.exit(0);
+                }
                 
                 String pubVals[] = allData[0].split(",");
                 String secrets[] = allData[1].split(",");
+                
+                if(pubVals.length!=secrets.length)
+                {
+                    System.out.println(" Please specify proper input values in file");
+                    System.exit(0);
+                }
                 
                 int numParties = pubVals.length;
                 Shamir sh[] = new Shamir[numParties];
