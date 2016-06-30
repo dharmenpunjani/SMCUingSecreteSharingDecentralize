@@ -1,4 +1,4 @@
-This coed demonstrate the Secure Multi-party Computation.
+This code demonstrate the Secure Multi-party Computation.
 It uses the Shamir's secret sharing in decentralize environment.
 For input you should use the input file.
 The format of the file is in csv format.
